@@ -50,7 +50,7 @@ namespace SimpleReflection
                 Console.WriteLine(t);
             }
             Type type = types.Where(t => t.FullName == "SomeDll.Person").FirstOrDefault();
-
+            
             StringBuilder sb = new StringBuilder("Properties of Person:");
             foreach (PropertyInfo prop in type.GetRuntimeProperties())
             {

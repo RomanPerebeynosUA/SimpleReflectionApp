@@ -12,11 +12,14 @@ namespace SomeDll
 
         public string Mail { get; set; }
 
-        public Person(string n, short a, string m)
+        public Company Company { get; set; }
+
+        public Person(string n, short a, string m, Company c)
         {
             Name = n;
             Age = a;
             Mail = m;
+            Company = c;
         }
         public void Display()
         {
