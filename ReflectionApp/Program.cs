@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,6 @@ namespace ReflectionApp
     {
         static async Task Main(string[] args)
         {
-
-          
-
             string path = @"D:\temp\test\PropertiesInfo.csv";
             List<Person> personList = new List<Person>()
             {
@@ -34,7 +32,12 @@ namespace ReflectionApp
                 },
             };
 
-            await CsvWiterSimple<Person>.WriteToCsvFile(personList, path);
+           
+ 
+           await personList.WritePropertiesToCsv(path);
+            
+
+           // await CsvWiterSimple<Person>.WriteToCsvFile(personList, path);
             Console.ReadKey();
 
             //List<Type> listTypes = new List<Type>();
@@ -43,7 +46,6 @@ namespace ReflectionApp
             //await WriteListPropertiesToCsv(listTypes, path);
             //Console.WriteLine("Writing done");
         }
-
         async static Task WriteListPropertiesToCsv(IEnumerable<Type> list , string path)
         {
             StringBuilder sb = new StringBuilder();

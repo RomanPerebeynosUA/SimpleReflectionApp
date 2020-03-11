@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace CsvWirter
 {
-    public static class CsvWiterSimple<T>
+    public static class  CsvWriterBasic
     {
-        public static async Task WriteToCsvFile(IEnumerable<T> list, string path)
+        public static async Task WritePropertiesToCsv<T>(this IEnumerable<T> list, string path)
         {
             StringBuilder sb = new StringBuilder();
             Type t = typeof(T);
             var properties = t.GetRuntimeProperties();
+          
             //header
             foreach (PropertyInfo prop in properties)
             {
@@ -45,6 +46,5 @@ namespace CsvWirter
                 Console.WriteLine(e.Message);
             }
         }
-   
     }
 }
