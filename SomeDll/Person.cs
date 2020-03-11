@@ -14,6 +14,7 @@ namespace SomeDll
 
         public Company Company { get; set; }
 
+        public Person() { }
         public Person(string n, short a, string m, Company c)
         {
             Name = n;
